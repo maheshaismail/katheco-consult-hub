@@ -3,6 +3,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import kathecoLogo from "@/assets/katheco-logo.jpg";
 import { 
   FileText, 
   BookOpen, 
@@ -78,8 +79,8 @@ const Index = () => {
       <section className="relative bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary-foreground/10 backdrop-blur-sm mb-6">
-              <span className="text-4xl font-bold text-primary-foreground">K</span>
+            <div className="inline-flex items-center justify-center w-32 h-32 rounded-2xl bg-white p-4 mb-6">
+              <img src={kathecoLogo} alt="KATHECO Logo" className="w-full h-full object-contain" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Professional Consultancy in Research, Data Analysis, and Project Management
