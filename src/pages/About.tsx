@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Target, Eye, Award } from "lucide-react";
+import kathecoTeam from "@/assets/katheco-team.jpg";
 
 const About = () => {
   return (
@@ -11,7 +12,16 @@ const About = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center">About KATHECO</h1>
+          <div className="text-center space-y-8">
+            <h1 className="text-4xl md:text-5xl font-bold">About KATHECO</h1>
+            <div className="max-w-3xl mx-auto">
+              <img 
+                src={kathecoTeam} 
+                alt="KATHECO Team" 
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
