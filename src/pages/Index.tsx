@@ -20,41 +20,49 @@ const Index = () => {
       icon: FileText,
       title: "Research Proposal & Dissertation",
       description: "Expert guidance for crafting compelling research proposals and dissertations with academic rigor.",
+      serviceName: "Research Proposal & Dissertation Consultation"
     },
     {
       icon: ClipboardList,
       title: "Project Proposal Writing",
       description: "Professional project proposal development for funding applications and organizational approval.",
+      serviceName: "Project Proposal Writing"
     },
     {
       icon: TrendingUp,
       title: "Monitoring & Evaluation",
       description: "Comprehensive M&E frameworks to track project performance and measure impact effectively.",
+      serviceName: "Monitoring & Evaluation Consultation"
     },
     {
       icon: BarChart3,
       title: "SPSS, STATA & Excel Training",
       description: "Hands-on training in statistical software for robust data analysis and interpretation.",
+      serviceName: "SPSS, STATA & Excel Training"
     },
     {
       icon: GraduationCap,
       title: "Microsoft Project Training",
       description: "Master project planning, scheduling, and resource management using MS Project tools.",
+      serviceName: "Microsoft Project Training"
     },
     {
       icon: Lightbulb,
       title: "ODK Kobo Training",
       description: "Learn mobile data collection techniques using ODK and Kobo Toolbox platforms.",
+      serviceName: "ODK Kobo Training"
     },
     {
       icon: Users,
       title: "Field Work Assistance",
       description: "Professional support for field research, data collection, and reporting activities.",
+      serviceName: "Field Work Report Assistance"
     },
     {
       icon: BookOpen,
       title: "Concept Note Writing",
       description: "Strategic concept notes that effectively communicate your project vision to stakeholders.",
+      serviceName: "Concept Note Writing"
     },
   ];
 

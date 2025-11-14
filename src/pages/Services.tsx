@@ -118,8 +118,9 @@ const Services = () => {
     }
   ];
 
-  const handleGetService = () => {
-    window.open("https://wa.me/255755521203", "_blank");
+  const handleGetService = (serviceName: string) => {
+    const message = `Hello KATHECO, I need consultancy for: ${serviceName}`;
+    window.open(`https://wa.me/255755521203?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   return (
@@ -160,7 +161,7 @@ const Services = () => {
                       ))}
                     </ul>
                   </div>
-                  <Button variant="service" size="lg" onClick={handleGetService} className="w-full md:w-auto">
+                  <Button variant="service" size="lg" onClick={() => handleGetService(service.title)} className="w-full md:w-auto">
                     Get Service
                   </Button>
                 </CardContent>
