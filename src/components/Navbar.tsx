@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import kathecoLogo from "@/assets/katheco-logo.jpg";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,9 +20,7 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">K</span>
-            </div>
+            <img src={kathecoLogo} alt="KATHECO Logo" className="w-10 h-10 object-contain" />
             <span className="font-bold text-xl text-foreground hidden sm:inline">KATHECO</span>
           </Link>
 
