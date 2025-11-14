@@ -7,11 +7,16 @@ interface ServiceCardProps {
   title: string;
   description: string;
   href?: string;
+  serviceName?: string;
 }
 
-export const ServiceCard = ({ icon: Icon, title, description, href }: ServiceCardProps) => {
+export const ServiceCard = ({ icon: Icon, title, description, href, serviceName }: ServiceCardProps) => {
   const handleClick = () => {
-    window.open(href || "https://wa.me/255755521203", "_blank");
+    const message = serviceName 
+      ? `Hello KATHECO, I need consultancy for: ${serviceName}`
+      : "Hello KATHECO, I need your consultancy service";
+    const url = href || `https://wa.me/255755521203?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
   };
 
   return (

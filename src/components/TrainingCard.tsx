@@ -10,7 +10,8 @@ interface TrainingCardProps {
 
 export const TrainingCard = ({ title, description, duration, outline }: TrainingCardProps) => {
   const handleRegister = () => {
-    window.open("https://wa.me/255755521203", "_blank");
+    const message = `Hello KATHECO, I want to register for: ${title}`;
+    window.open(`https://wa.me/255755521203?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   return (
