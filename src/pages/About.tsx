@@ -82,14 +82,18 @@ const About = () => {
 
             {/* Consultant Section */}
             <div className="bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl p-8 mt-12">
-              <h2 className="text-3xl font-bold text-foreground text-center mb-8">Meet the Consultant</h2>
+              <h2 className="text-3xl font-bold text-foreground text-center mb-8">Meet the CEO</h2>
               <div className="flex flex-col md:flex-row items-center gap-8">
-                <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
-                  <span className="text-6xl font-bold text-primary-foreground">KT</span>
+                <div className="w-48 h-48 rounded-full overflow-hidden flex-shrink-0">
+                  <img 
+                    src={deptRegistration} 
+                    alt="Kayombo Theophil" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="flex-1 text-center md:text-left">
                   <h3 className="text-2xl font-bold text-foreground mb-2">Kayombo Theophil</h3>
-                  <p className="text-lg text-primary font-semibold mb-4">Principal Consultant</p>
+                  <p className="text-lg text-primary font-semibold mb-4">CEO</p>
                   <p className="text-muted-foreground leading-relaxed">
                     With extensive experience in research methodology, data analysis, project management, and academic 
                     consultancy, Kayombo Theophil brings a wealth of knowledge and practical expertise to help clients 
@@ -143,7 +147,7 @@ const About = () => {
                     name: "Registration & Legal Affairs – Fadhiri Ayubu Zumba",
                     description: "Supervising company registration, monitoring registration payments, implementing/amending laws, providing consultation.",
                     phone: "255768512757",
-                    image: deptRegistration
+                    image: null
                   },
                   {
                     name: "Marketing Department – Maulid Rashid Juma",
@@ -160,11 +164,17 @@ const About = () => {
                 ].map((dept, index) => (
                   <div key={index} className="bg-gradient-to-br from-card to-muted/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                     <div className="w-full h-64 overflow-hidden">
-                      <img 
-                        src={dept.image} 
-                        alt={dept.name}
-                        className="w-full h-full object-cover"
-                      />
+                      {dept.image ? (
+                        <img 
+                          src={dept.image} 
+                          alt={dept.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
+                          <span className="text-muted-foreground text-sm font-medium">Department Image</span>
+                        </div>
+                      )}
                     </div>
                     <div className="p-6 space-y-4">
                       <h3 className="text-lg font-bold text-foreground">{dept.name}</h3>
