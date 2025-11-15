@@ -116,6 +116,58 @@ const About = () => {
                 ))}
               </div>
             </div>
+
+            {/* Our Departments */}
+            <div className="mt-16">
+              <h2 className="text-3xl font-bold text-foreground text-center mb-8">Our Departments</h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    name: "Customer Identification Department",
+                    description: "Identify and find new customers, promote the company through short posts and outreach.",
+                    phone: "255747324105"
+                  },
+                  {
+                    name: "Department of Finance – CPA Katheco (Mr. Salumu Ally)",
+                    description: "Auditing financial statements, preparing tax documents, financial planning advisory.",
+                    phone: "255626489782"
+                  },
+                  {
+                    name: "Registration & Legal Affairs – Fadhiri Ayubu Zumba",
+                    description: "Supervising company registration, monitoring registration payments, implementing/amending laws, providing consultation.",
+                    phone: "255768512757"
+                  },
+                  {
+                    name: "Marketing Department – Maulid Rashid Juma",
+                    description: "Customer & staff training, ensuring availability of customers, overseeing marketing strategies for brand growth.",
+                    phone: "255612775810"
+                  },
+                  {
+                    name: "Media & Advertisement – Costantino Sulle",
+                    description: "Content creation, media buying & placement, collaborating with marketing on digital campaigns.",
+                    phone: "255786208036"
+                  }
+                ].map((dept, index) => (
+                  <div key={index} className="bg-gradient-to-br from-card to-muted/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div className="w-full h-48 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
+                      <span className="text-muted-foreground text-sm font-medium">Department Image</span>
+                    </div>
+                    <div className="p-6 space-y-4">
+                      <h3 className="text-lg font-bold text-foreground">{dept.name}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{dept.description}</p>
+                      <a 
+                        href={`https://wa.me/${dept.phone}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-primary-foreground bg-gradient-to-br from-primary to-secondary rounded-lg hover:opacity-90 transition-opacity"
+                      >
+                        Contact
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
