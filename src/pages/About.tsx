@@ -86,7 +86,7 @@ const About = () => {
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="w-48 h-48 rounded-full overflow-hidden flex-shrink-0">
                   <img 
-                    src={deptRegistration} 
+                    src={deptCustomerId} 
                     alt="Kayombo Theophil" 
                     className="w-full h-full object-cover"
                   />
@@ -135,7 +135,7 @@ const About = () => {
                     name: "Customer Identification Department",
                     description: "Identify and find new customers, promote the company through short posts and outreach.",
                     phone: "255747324105",
-                    image: deptCustomerId
+                    image: null
                   },
                   {
                     name: "Department of Finance – CPA Katheco (Mr. Salumu Ally)",
@@ -147,7 +147,7 @@ const About = () => {
                     name: "Registration & Legal Affairs – Fadhiri Ayubu Zumba",
                     description: "Supervising company registration, monitoring registration payments, implementing/amending laws, providing consultation.",
                     phone: "255768512757",
-                    image: null
+                    image: deptRegistration
                   },
                   {
                     name: "Marketing Department – Maulid Rashid Juma",
