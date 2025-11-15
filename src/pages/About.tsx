@@ -3,6 +3,11 @@ import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Target, Eye, Award } from "lucide-react";
 import kathecoTeam from "@/assets/katheco-team.jpg";
+import deptCustomerId from "@/assets/dept-customer-id.jpg";
+import deptFinance from "@/assets/dept-finance.jpg";
+import deptRegistration from "@/assets/dept-registration.jpg";
+import deptMarketing from "@/assets/dept-marketing.jpg";
+import deptMedia from "@/assets/dept-media.jpg";
 
 const About = () => {
   return (
@@ -125,32 +130,41 @@ const About = () => {
                   {
                     name: "Customer Identification Department",
                     description: "Identify and find new customers, promote the company through short posts and outreach.",
-                    phone: "255747324105"
+                    phone: "255747324105",
+                    image: deptCustomerId
                   },
                   {
                     name: "Department of Finance – CPA Katheco (Mr. Salumu Ally)",
                     description: "Auditing financial statements, preparing tax documents, financial planning advisory.",
-                    phone: "255626489782"
+                    phone: "255626489782",
+                    image: deptFinance
                   },
                   {
                     name: "Registration & Legal Affairs – Fadhiri Ayubu Zumba",
                     description: "Supervising company registration, monitoring registration payments, implementing/amending laws, providing consultation.",
-                    phone: "255768512757"
+                    phone: "255768512757",
+                    image: deptRegistration
                   },
                   {
                     name: "Marketing Department – Maulid Rashid Juma",
                     description: "Customer & staff training, ensuring availability of customers, overseeing marketing strategies for brand growth.",
-                    phone: "255612775810"
+                    phone: "255612775810",
+                    image: deptMarketing
                   },
                   {
                     name: "Media & Advertisement – Costantino Sulle",
                     description: "Content creation, media buying & placement, collaborating with marketing on digital campaigns.",
-                    phone: "255786208036"
+                    phone: "255786208036",
+                    image: deptMedia
                   }
                 ].map((dept, index) => (
                   <div key={index} className="bg-gradient-to-br from-card to-muted/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                    <div className="w-full h-48 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
-                      <span className="text-muted-foreground text-sm font-medium">Department Image</span>
+                    <div className="w-full h-64 overflow-hidden">
+                      <img 
+                        src={dept.image} 
+                        alt={dept.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="p-6 space-y-4">
                       <h3 className="text-lg font-bold text-foreground">{dept.name}</h3>
