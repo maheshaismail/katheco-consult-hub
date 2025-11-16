@@ -120,6 +120,31 @@ const Index = () => {
         </div>
       </section>
 
+      {/* WhatsApp Group Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto bg-gradient-to-br from-card to-background rounded-2xl shadow-xl p-8 md:p-12 text-center border border-border/50">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+              <Users className="w-8 h-8 text-primary-foreground" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Join Our WhatsApp Community
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+              Connect with other researchers, students, and professionals. Get updates on training, tips, and exclusive consultancy offers.
+            </p>
+            <Button 
+              variant="service" 
+              size="lg"
+              onClick={() => window.open("https://chat.whatsapp.com/Gl4CqWOGNdT7cKXpyoaBR3", "_blank")}
+              className="text-lg px-8"
+            >
+              Join WhatsApp Group
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-primary to-secondary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
