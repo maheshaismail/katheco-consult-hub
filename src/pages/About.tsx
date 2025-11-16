@@ -18,7 +18,7 @@ const About = () => {
       <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground py-16">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-8">
-            <h1 className="text-4xl md:text-5xl font-bold">About KATHECO</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">About KATHECO CONSULTANCY COMPANY LIMITED</h1>
             <div className="max-w-3xl mx-auto">
               <img 
                 src={kathecoTeam} 
@@ -38,7 +38,7 @@ const About = () => {
             <div className="text-center">
               <h2 className="text-3xl font-bold text-foreground mb-4">Who We Are</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                KATHECO (Kayombo Theophil Consultancy) is a professional consultancy agency specializing in project planning, 
+                KATHECO CONSULTANCY COMPANY LIMITED is a professional consultancy agency specializing in project planning, 
                 research support, monitoring & evaluation, data analysis, and academic consultancy. We are committed to 
                 delivering excellence in every project we undertake.
               </p>
@@ -126,8 +126,8 @@ const About = () => {
               </div>
             </div>
 
-            {/* Our Departments */}
-            <div className="mt-16">
+            {/* Our Departments - Hidden until next update */}
+            {/* <div className="mt-16">
               <h2 className="text-3xl font-bold text-foreground text-center mb-8">Our Departments</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
@@ -191,7 +191,7 @@ const About = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
