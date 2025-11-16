@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { SEO } from "@/components/SEO";
 import { Target, Eye, Award } from "lucide-react";
 import kathecoTeam from "@/assets/katheco-team.jpg";
 import deptCustomerId from "@/assets/dept-customer-id.jpg";
@@ -12,6 +13,12 @@ import deptMedia from "@/assets/dept-media.jpg";
 const About = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="About Us - Professional Consultancy Team"
+        description="Learn about KATHECO CONSULTANCY COMPANY LIMITED, a professional consultancy agency in Tanzania specializing in research, project management, data analysis, and academic support. Meet our CEO and team."
+        keywords="about KATHECO, consultancy Tanzania, research consultancy team, Kayombo Theophil, Dodoma consultancy, professional consultancy services"
+        canonicalUrl="https://katheco.lovable.app/about"
+      />
       <Navbar />
       
       {/* Hero Section */}

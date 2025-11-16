@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -125,6 +126,12 @@ const Services = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="Our Services - Research, Data Analysis & Project Management"
+        description="Comprehensive consultancy services including project proposal writing, research support, dissertation help, monitoring & evaluation, data analysis, and concept note writing in Tanzania."
+        keywords="project proposal writing, research consultation, dissertation help, monitoring evaluation services, data analysis Tanzania, concept note writing, field work assistance, research write-up"
+        canonicalUrl="https://katheco.lovable.app/services"
+      />
       <Navbar />
       
       {/* Hero Section */}

@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { SEO } from "@/components/SEO";
 import { TrainingCard } from "@/components/TrainingCard";
 
 const Training = () => {
@@ -74,6 +75,12 @@ const Training = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="Training Programs - SPSS, STATA, Excel & Project Management"
+        description="Professional training in SPSS, STATA, Excel, Microsoft Project, and ODK Kobo mobile data collection. Hands-on courses for research and project management in Tanzania."
+        keywords="SPSS training Tanzania, STATA training, Excel training, Microsoft Project training, ODK Kobo training, data analysis training, project management training Dodoma"
+        canonicalUrl="https://katheco.lovable.app/training"
+      />
       <Navbar />
       
       {/* Hero Section */}
