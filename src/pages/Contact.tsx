@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -35,6 +36,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="Contact Us - Get Professional Consultancy Services"
+        description="Contact KATHECO CONSULTANCY COMPANY LIMITED for professional research, data analysis, and project management consultancy in Dodoma, Tanzania. Available Monday-Saturday."
+        keywords="contact KATHECO, consultancy Dodoma, research consultancy contact, project management Tanzania contact, WhatsApp consultancy"
+        canonicalUrl="https://katheco.lovable.app/contact"
+      />
       <Navbar />
       
       {/* Hero Section */}

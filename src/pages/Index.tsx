@@ -3,6 +3,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { SEO } from "@/components/SEO";
 import kathecoLogo from "@/assets/katheco-logo.jpg";
 import { 
   FileText, 
@@ -73,6 +74,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="Home - Professional Research & Project Management Consultancy"
+        description="Expert consultancy in research, data analysis, project management, monitoring & evaluation, and academic support in Tanzania. Professional training in SPSS, STATA, Excel, Microsoft Project, and ODK."
+        keywords="research consultancy Tanzania, data analysis services, project management Dodoma, SPSS training, STATA training, monitoring evaluation, academic consultancy, research proposal writing, dissertation help"
+        canonicalUrl="https://katheco.lovable.app/"
+      />
       <Navbar />
       
       {/* Hero Section */}
