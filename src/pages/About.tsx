@@ -35,8 +35,15 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-12">
             {/* Introduction */}
-            <div className="text-center">
+            <div className="text-center space-y-6">
               <h2 className="text-3xl font-bold text-foreground mb-4">Who We Are</h2>
+              <div className="max-w-2xl mx-auto">
+                <img 
+                  src="https://placeholder.com/800x400" 
+                  alt="KATHECO CONSULTANCY COMPANY LIMITED" 
+                  className="w-full h-auto rounded-xl shadow-lg"
+                />
+              </div>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 KATHECO CONSULTANCY COMPANY LIMITED is a professional consultancy agency specializing in project planning, 
                 research support, monitoring & evaluation, data analysis, and academic consultancy. We are committed to 
@@ -63,8 +70,7 @@ const About = () => {
                 </div>
                 <h3 className="text-xl font-bold text-foreground">Our Vision</h3>
                 <p className="text-muted-foreground">
-                  To be the leading provider of research and project management consultancy in Tanzania, recognized for our 
-                  commitment to quality, innovation, and client success.
+                  To be the leading provider of research and project management consultancy in Tanzania.
                 </p>
               </div>
 
