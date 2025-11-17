@@ -31,16 +31,16 @@ const About = () => {
             alt="KATHECO Team" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/60 to-secondary/60"></div>
         </div>
         
         {/* Content Overlay */}
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground drop-shadow-lg">
+            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground drop-shadow-2xl">
               About KATHECO CONSULTANCY COMPANY LIMITED
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto drop-shadow">
+            <p className="text-xl md:text-2xl text-primary-foreground/95 max-w-3xl mx-auto drop-shadow-xl">
               Professional consultancy in research, project management, and academic support
             </p>
           </div>
