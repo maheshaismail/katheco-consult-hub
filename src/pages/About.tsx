@@ -4,6 +4,7 @@ import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
 import { Target, Eye, Award } from "lucide-react";
 import kathecoTeam from "@/assets/katheco-team.jpg";
+import kathecoTeamHero from "@/assets/katheco-team-hero.jpg";
 import deptCustomerId from "@/assets/dept-customer-id.jpg";
 import deptFinance from "@/assets/dept-finance.jpg";
 import deptRegistration from "@/assets/dept-registration.jpg";
@@ -26,7 +27,7 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80" 
+            src={kathecoTeamHero} 
             alt="KATHECO Team" 
             className="w-full h-full object-cover"
           />
