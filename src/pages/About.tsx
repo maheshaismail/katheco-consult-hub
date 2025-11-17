@@ -22,17 +22,26 @@ const About = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center space-y-8">
-            <h1 className="text-4xl md:text-5xl font-bold">About KATHECO CONSULTANCY COMPANY LIMITED</h1>
-            <div className="max-w-3xl mx-auto">
-              <img 
-                src={kathecoTeam} 
-                alt="KATHECO Team" 
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
-            </div>
+      <section className="relative min-h-[500px] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80" 
+            alt="KATHECO Team" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/90"></div>
+        </div>
+        
+        {/* Content Overlay */}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center space-y-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground drop-shadow-lg">
+              About KATHECO CONSULTANCY COMPANY LIMITED
+            </h1>
+            <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto drop-shadow">
+              Professional consultancy in research, project management, and academic support
+            </p>
           </div>
         </div>
       </section>
@@ -44,14 +53,7 @@ const About = () => {
             {/* Introduction */}
             <div className="text-center space-y-6">
               <h2 className="text-3xl font-bold text-foreground mb-4">Who We Are</h2>
-              <div className="max-w-2xl mx-auto">
-                <img 
-                  src="https://placeholder.com/800x400" 
-                  alt="KATHECO CONSULTANCY COMPANY LIMITED" 
-                  className="w-full h-auto rounded-xl shadow-lg"
-                />
-              </div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 KATHECO CONSULTANCY COMPANY LIMITED is a professional consultancy agency specializing in project planning, 
                 research support, monitoring & evaluation, data analysis, and academic consultancy. We are committed to 
                 delivering excellence in every project we undertake.
