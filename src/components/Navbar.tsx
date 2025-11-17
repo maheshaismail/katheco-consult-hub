@@ -21,7 +21,10 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
             <img src={kathecoLogo} alt="KATHECO Logo" className="w-10 h-10 object-contain" />
-            <span className="font-bold text-xl text-foreground hidden sm:inline">KATHECO CONSULTANCY COMPANY LIMITED</span>
+            <span className="font-bold text-xl text-foreground">
+              <span className="hidden lg:inline">KATHECO CONSULTANCY COMPANY LIMITED</span>
+              <span className="lg:hidden">KATHECO</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
