@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
+import AnnouncementsSection from "@/components/AnnouncementsSection";
 import kathecoLogo from "@/assets/katheco-logo.jpg";
 import { 
   FileText, 
@@ -126,6 +127,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Announcements Section */}
+      <AnnouncementsSection />
 
       {/* WhatsApp Group Section */}
       <section className="py-16 bg-muted/30">
