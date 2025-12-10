@@ -67,7 +67,33 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      announcements_public: {
+        Row: {
+          content: string | null
+          created_at: string | null
+          id: string | null
+          image_url: string | null
+          title: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string | null
+          id?: string | null
+          image_url?: string | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          content?: string | null
+          created_at?: string | null
+          id?: string | null
+          image_url?: string | null
+          title?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       has_role: {

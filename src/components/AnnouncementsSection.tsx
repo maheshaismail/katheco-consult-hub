@@ -21,14 +21,15 @@ const AnnouncementsSection = () => {
 
   const fetchAnnouncements = async () => {
     try {
+      // Use the public view that excludes user_id for security
       const { data, error } = await supabase
-        .from("announcements")
-        .select("*")
+        .from("announcements_public" as any)
+        .select("id, title, content, image_url, created_at")
         .order("created_at", { ascending: false })
         .limit(6);
 
       if (error) throw error;
-      setAnnouncements(data || []);
+      setAnnouncements((data as unknown as Announcement[]) || []);
     } catch (error) {
       console.error("Error fetching announcements:", error);
     } finally {
