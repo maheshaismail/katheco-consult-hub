@@ -21,6 +21,7 @@ interface Announcement {
 const Dashboard = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<any>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(false);
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   
@@ -54,8 +55,24 @@ const Dashboard = () => {
   useEffect(() => {
     if (user) {
       fetchAnnouncements();
+      checkAdminRole();
     }
   }, [user]);
+
+  const checkAdminRole = async () => {
+    if (!user) return;
+    
+    const { data, error } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", user.id)
+      .eq("role", "admin")
+      .maybeSingle();
+    
+    if (!error && data) {
+      setIsAdmin(true);
+    }
+  };
 
   const fetchAnnouncements = async () => {
     const { data, error } = await supabase
