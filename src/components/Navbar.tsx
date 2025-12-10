@@ -13,6 +13,7 @@ export const Navbar = () => {
     { name: "Services", path: "/services" },
     { name: "Training", path: "/training" },
     { name: "Contact", path: "/contact" },
+    { name: "Admin", path: "/auth" },
   ];
 
   return (
