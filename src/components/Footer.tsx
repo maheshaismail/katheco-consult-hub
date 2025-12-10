@@ -79,8 +79,8 @@ export const Footer = () => {
                     </a>
                   </p>
                   <p>
-                    <a href="mailto:salumheta6@gmail.com" className="hover:text-primary-foreground transition-colors">
-                      salumheta6@gmail.com
+                    <a href="mailto:kathecoconsultancy01@gmail.com" className="hover:text-primary-foreground transition-colors">
+                      kathecoconsultancy01@gmail.com
                     </a>
                   </p>
                 </div>
