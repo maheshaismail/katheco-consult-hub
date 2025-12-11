@@ -17,6 +17,53 @@ const AnnouncementsSection = () => {
 
   useEffect(() => {
     fetchAnnouncements();
+
+    // Subscribe to real-time changes on announcements table
+    const channel = supabase
+      .channel('announcements-realtime')
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'announcements'
+        },
+        (payload) => {
+          const newAnnouncement = payload.new as Announcement;
+          setAnnouncements((prev) => [newAnnouncement, ...prev].slice(0, 6));
+        }
+      )
+      .on(
+        'postgres_changes',
+        {
+          event: 'DELETE',
+          schema: 'public',
+          table: 'announcements'
+        },
+        (payload) => {
+          const deletedId = payload.old.id;
+          setAnnouncements((prev) => prev.filter((a) => a.id !== deletedId));
+        }
+      )
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'announcements'
+        },
+        (payload) => {
+          const updated = payload.new as Announcement;
+          setAnnouncements((prev) =>
+            prev.map((a) => (a.id === updated.id ? updated : a))
+          );
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchAnnouncements = async () => {
