@@ -185,6 +185,33 @@ const Dashboard = () => {
     }
   };
 
+  const handleClearAll = async () => {
+    if (!confirm("Are you sure you want to delete ALL announcements? This cannot be undone.")) return;
+    
+    setLoading(true);
+    
+    const { error } = await supabase
+      .from("announcements")
+      .delete()
+      .neq("id", "00000000-0000-0000-0000-000000000000"); // Delete all rows
+
+    if (error) {
+      toast({
+        title: "Error",
+        description: "Failed to clear announcements: " + error.message,
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Success",
+        description: "All announcements cleared successfully",
+      });
+      fetchAnnouncements();
+    }
+    
+    setLoading(false);
+  };
+
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate("/");
@@ -263,7 +290,20 @@ const Dashboard = () => {
 
             {/* Announcements List */}
             <div className="space-y-4">
-              <h2 className="text-xl font-semibold">Recent Announcements</h2>
+              <div className="flex justify-between items-center">
+                <h2 className="text-xl font-semibold">Recent Announcements</h2>
+                {announcements.length > 0 && (
+                  <Button 
+                    variant="destructive" 
+                    size="sm" 
+                    onClick={handleClearAll}
+                    disabled={loading}
+                  >
+                    <Trash2 className="h-4 w-4 mr-2" />
+                    Clear All
+                  </Button>
+                )}
+              </div>
               {announcements.map((announcement) => (
                 <Card key={announcement.id}>
                   <CardContent className="pt-6">
