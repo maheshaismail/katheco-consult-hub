@@ -58,11 +58,11 @@ export const HeroCarousel = ({ children, className = "", interval = 5000 }: Hero
           >
             <div
               className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[8000ms] ease-linear ${
-                isActive ? "scale-110" : "scale-100"
+                isActive ? "scale-105" : "scale-100"
               }`}
               style={{ backgroundImage: `url(${slide})` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40" />
           </div>
         );
       })}
