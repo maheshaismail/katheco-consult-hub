@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import AnnouncementsSection from "@/components/AnnouncementsSection";
 import kathecoLogo from "@/assets/katheco-logo.jpg";
 import kathecoTeamHero from "@/assets/katheco-team-hero.jpg";
@@ -123,15 +124,17 @@ const Index = () => {
       {/* Services Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <AnimatedSection animation="fade-up" className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Services</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Comprehensive consultancy services tailored to your research and project needs
             </p>
-          </div>
+          </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <ServiceCard key={index} {...service} />
+              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <ServiceCard {...service} />
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -143,43 +146,47 @@ const Index = () => {
       {/* WhatsApp Group Section */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto bg-gradient-to-br from-card to-background rounded-2xl shadow-xl p-8 md:p-12 text-center border border-border/50">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <Users className="w-8 h-8 text-primary-foreground" />
+          <AnimatedSection animation="scale">
+            <div className="max-w-3xl mx-auto bg-gradient-to-br from-card to-background rounded-2xl shadow-xl p-8 md:p-12 text-center border border-border/50">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                <Users className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Join Our WhatsApp Community
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+                Connect with other researchers, students, and professionals. Get updates on training, tips, and exclusive consultancy offers.
+              </p>
+              <Button 
+                variant="service" 
+                size="lg"
+                onClick={() => window.open("https://chat.whatsapp.com/Gl4CqWOGNdT7cKXpyoaBR3", "_blank")}
+                className="text-lg px-8"
+              >
+                Join WhatsApp Group
+              </Button>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Join Our WhatsApp Community
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-              Connect with other researchers, students, and professionals. Get updates on training, tips, and exclusive consultancy offers.
-            </p>
-            <Button 
-              variant="service" 
-              size="lg"
-              onClick={() => window.open("https://chat.whatsapp.com/Gl4CqWOGNdT7cKXpyoaBR3", "_blank")}
-              className="text-lg px-8"
-            >
-              Join WhatsApp Group
-            </Button>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-primary to-secondary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-xl mb-8 text-primary-foreground/90">
-            Contact us today for professional consultancy services
-          </p>
-          <Button 
-            variant="hero" 
-            size="xl" 
-            onClick={handleGetConsultancy}
-            className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-          >
-            Contact Us Now
-          </Button>
+          <AnimatedSection animation="fade-up">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl mb-8 text-primary-foreground/90">
+              Contact us today for professional consultancy services
+            </p>
+            <Button 
+              variant="hero" 
+              size="xl" 
+              onClick={handleGetConsultancy}
+              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+            >
+              Contact Us Now
+            </Button>
+          </AnimatedSection>
         </div>
       </section>
 

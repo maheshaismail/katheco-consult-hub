@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { Target, Eye, Award } from "lucide-react";
 import kathecoTeam from "@/assets/katheco-team.jpg";
 import kathecoTeamHero from "@/assets/katheco-team-hero.jpg";
@@ -52,18 +53,18 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-12">
             {/* Introduction */}
-            <div className="text-center space-y-6">
+            <AnimatedSection animation="fade-up" className="text-center space-y-6">
               <h2 className="text-3xl font-bold text-foreground mb-4">Who We Are</h2>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 KATHECO CONSULTANCY COMPANY LIMITED is a professional consultancy agency specializing in project planning, 
                 research support, monitoring & evaluation, data analysis, and academic consultancy. We are committed to 
                 delivering excellence in every project we undertake.
               </p>
-            </div>
+            </AnimatedSection>
 
             {/* Values Grid */}
             <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <div className="text-center space-y-4">
+              <AnimatedSection animation="fade-up" delay={0} className="text-center space-y-4">
                 <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                   <Target className="w-8 h-8 text-primary-foreground" />
                 </div>
@@ -72,9 +73,9 @@ const About = () => {
                   To provide reliable and high-quality consultancy services that empower researchers, students, and organizations 
                   to achieve their goals with confidence and excellence.
                 </p>
-              </div>
+              </AnimatedSection>
 
-              <div className="text-center space-y-4">
+              <AnimatedSection animation="fade-up" delay={100} className="text-center space-y-4">
                 <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                   <Eye className="w-8 h-8 text-primary-foreground" />
                 </div>
@@ -82,9 +83,9 @@ const About = () => {
                 <p className="text-muted-foreground">
                   To be the leading provider of research and project management consultancy in Tanzania.
                 </p>
-              </div>
+              </AnimatedSection>
 
-              <div className="text-center space-y-4">
+              <AnimatedSection animation="fade-up" delay={200} className="text-center space-y-4">
                 <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                   <Award className="w-8 h-8 text-primary-foreground" />
                 </div>
@@ -93,11 +94,11 @@ const About = () => {
                   We uphold the highest standards of integrity, professionalism, innovation, and commitment in all our work, 
                   ensuring exceptional service delivery.
                 </p>
-              </div>
+              </AnimatedSection>
             </div>
 
             {/* Consultant Section */}
-            <div className="bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl p-8 mt-12">
+            <AnimatedSection animation="scale" className="bg-gradient-to-br from-muted/30 to-muted/10 rounded-2xl p-8 mt-12">
               <h2 className="text-3xl font-bold text-foreground text-center mb-8">Meet the CEO</h2>
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="w-48 h-48 rounded-full overflow-hidden flex-shrink-0">
@@ -118,10 +119,10 @@ const About = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Why Choose Us */}
-            <div className="mt-12">
+            <AnimatedSection animation="fade-up" className="mt-12">
               <h2 className="text-3xl font-bold text-foreground text-center mb-8">Why Choose KATHECO?</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {[
@@ -140,7 +141,7 @@ const About = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Our Departments - Hidden until next update */}
             {/* <div className="mt-16">

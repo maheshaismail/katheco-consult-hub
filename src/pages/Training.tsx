@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { TrainingCard } from "@/components/TrainingCard";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -107,12 +108,14 @@ const Training = () => {
         <div className="container mx-auto px-4">
           <div className="grid gap-8 md:grid-cols-2 max-w-6xl mx-auto">
             {trainings.map((training, index) => (
-              <TrainingCard key={index} {...training} />
+              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <TrainingCard {...training} />
+              </AnimatedSection>
             ))}
           </div>
 
           {/* Additional Info */}
-          <div className="mt-12 max-w-4xl mx-auto bg-muted/30 rounded-xl p-8">
+          <AnimatedSection animation="fade-up" delay={500} className="mt-12 max-w-4xl mx-auto bg-muted/30 rounded-xl p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Training Information</h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
@@ -136,7 +139,7 @@ const Training = () => {
                 and reference guides are provided.
               </p>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 

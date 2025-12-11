@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -97,7 +98,7 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <AnimatedSection animation="fade-right" className="space-y-8">
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-6">Get in Touch</h2>
                 <p className="text-muted-foreground text-lg">
@@ -161,96 +162,98 @@ const Contact = () => {
                   Sunday: Closed
                 </p>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Contact Form */}
-            <Card className="border-border/50 shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-2xl">Send Us a Message</CardTitle>
-                <CardDescription>
-                  Fill out the form below and we'll get back to you via WhatsApp
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name *</Label>
-                    <Input
-                      id="name"
-                      placeholder="Enter your full name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      required
-                      maxLength={100}
-                      className={errors.name ? "border-destructive" : ""}
-                    />
-                    {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
-                  </div>
+            <AnimatedSection animation="fade-left" delay={200}>
+              <Card className="border-border/50 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-2xl">Send Us a Message</CardTitle>
+                  <CardDescription>
+                    Fill out the form below and we'll get back to you via WhatsApp
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name *</Label>
+                      <Input
+                        id="name"
+                        placeholder="Enter your full name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        required
+                        maxLength={100}
+                        className={errors.name ? "border-destructive" : ""}
+                      />
+                      {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
+                    </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      required
-                      maxLength={255}
-                      className={errors.email ? "border-destructive" : ""}
-                    />
-                    {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
-                  </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="your.email@example.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        required
+                        maxLength={255}
+                        className={errors.email ? "border-destructive" : ""}
+                      />
+                      {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
+                    </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number *</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="+255 XXX XXX XXX"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      required
-                      maxLength={20}
-                      className={errors.phone ? "border-destructive" : ""}
-                    />
-                    {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
-                  </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number *</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        placeholder="+255 XXX XXX XXX"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        required
+                        maxLength={20}
+                        className={errors.phone ? "border-destructive" : ""}
+                      />
+                      {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
+                    </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="service">Service Interested In</Label>
-                    <Input
-                      id="service"
-                      placeholder="e.g., Research Consultation, Data Analysis"
-                      value={formData.service}
-                      onChange={(e) => setFormData({...formData, service: e.target.value})}
-                      maxLength={200}
-                      className={errors.service ? "border-destructive" : ""}
-                    />
-                    {errors.service && <p className="text-sm text-destructive">{errors.service}</p>}
-                  </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="service">Service Interested In</Label>
+                      <Input
+                        id="service"
+                        placeholder="e.g., Research Consultation, Data Analysis"
+                        value={formData.service}
+                        onChange={(e) => setFormData({...formData, service: e.target.value})}
+                        maxLength={200}
+                        className={errors.service ? "border-destructive" : ""}
+                      />
+                      {errors.service && <p className="text-sm text-destructive">{errors.service}</p>}
+                    </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Tell us about your needs..."
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      required
-                      maxLength={2000}
-                      className={errors.message ? "border-destructive" : ""}
-                    />
-                    {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
-                  </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Message *</Label>
+                      <Textarea
+                        id="message"
+                        placeholder="Tell us about your needs..."
+                        rows={5}
+                        value={formData.message}
+                        onChange={(e) => setFormData({...formData, message: e.target.value})}
+                        required
+                        maxLength={2000}
+                        className={errors.message ? "border-destructive" : ""}
+                      />
+                      {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
+                    </div>
 
-                  <Button type="submit" variant="service" size="lg" className="w-full">
-                    Send Message via WhatsApp
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    <Button type="submit" variant="service" size="lg" className="w-full">
+                      Send Message via WhatsApp
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -258,25 +261,27 @@ const Contact = () => {
       {/* WhatsApp Group Section */}
       <section className="py-16 bg-gradient-to-br from-muted/50 to-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto bg-gradient-to-br from-card to-background rounded-2xl shadow-xl p-8 md:p-12 text-center border border-border/50">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <Users className="w-8 h-8 text-primary-foreground" />
+          <AnimatedSection animation="scale">
+            <div className="max-w-3xl mx-auto bg-gradient-to-br from-card to-background rounded-2xl shadow-xl p-8 md:p-12 text-center border border-border/50">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                <Users className="w-8 h-8 text-primary-foreground" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Join Our WhatsApp Community
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+                Connect with other researchers, students, and professionals. Get updates on training, tips, and exclusive consultancy offers.
+              </p>
+              <Button 
+                variant="service" 
+                size="lg"
+                onClick={() => window.open("https://chat.whatsapp.com/Gl4CqWOGNdT7cKXpyoaBR3", "_blank")}
+                className="text-lg px-8"
+              >
+                Join WhatsApp Group
+              </Button>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Join Our WhatsApp Community
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-              Connect with other researchers, students, and professionals. Get updates on training, tips, and exclusive consultancy offers.
-            </p>
-            <Button 
-              variant="service" 
-              size="lg"
-              onClick={() => window.open("https://chat.whatsapp.com/Gl4CqWOGNdT7cKXpyoaBR3", "_blank")}
-              className="text-lg px-8"
-            >
-              Join WhatsApp Group
-            </Button>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
