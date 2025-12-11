@@ -4,7 +4,7 @@ import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { TrainingCard } from "@/components/TrainingCard";
-import heroBg from "@/assets/hero-bg.jpg";
+import { HeroCarousel } from "@/components/HeroCarousel";
 
 const Training = () => {
   const trainings = [
@@ -86,22 +86,14 @@ const Training = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section 
-        className="relative text-primary-foreground py-16"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <HeroCarousel className="text-primary-foreground py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Training Programs</h1>
           <p className="text-xl text-center text-primary-foreground/90 max-w-3xl mx-auto">
             Professional training programs designed to enhance your research and project management skills
           </p>
         </div>
-      </section>
+      </HeroCarousel>
 
       {/* Training Cards */}
       <section className="py-16 bg-background">
