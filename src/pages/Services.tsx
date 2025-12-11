@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -158,30 +159,32 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="grid gap-8 max-w-5xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="border-border/50 shadow-md hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-2xl text-foreground">{service.title}</CardTitle>
-                  <CardDescription className="text-muted-foreground text-base">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-3">What You Get:</h4>
-                    <ul className="space-y-2">
-                      {service.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="text-primary mt-1">✓</span>
-                          <span className="text-muted-foreground">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <Button variant="service" size="lg" onClick={() => handleGetService(service.title)} className="w-full md:w-auto">
-                    Get Service
-                  </Button>
-                </CardContent>
-              </Card>
+              <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
+                <Card className="border-border/50 shadow-md hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-foreground">{service.title}</CardTitle>
+                    <CardDescription className="text-muted-foreground text-base">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-3">What You Get:</h4>
+                      <ul className="space-y-2">
+                        {service.benefits.map((benefit, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="text-primary mt-1">✓</span>
+                            <span className="text-muted-foreground">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Button variant="service" size="lg" onClick={() => handleGetService(service.title)} className="w-full md:w-auto">
+                      Get Service
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             ))}
           </div>
         </div>
