@@ -292,7 +292,7 @@ const Dashboard = () => {
             <div className="space-y-4">
               <div className="flex justify-between items-center">
                 <h2 className="text-xl font-semibold">Recent Announcements</h2>
-                {announcements.length > 0 && (
+                {isAdmin && announcements.length > 0 && (
                   <Button 
                     variant="destructive" 
                     size="sm" 
