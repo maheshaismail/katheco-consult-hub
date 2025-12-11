@@ -1,8 +1,13 @@
+# Robots.txt for KATHECO CONSULTANCY COMPANY LIMITED
+# https://katheco.lovable.app
+
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +15,22 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
 User-agent: *
 Allow: /
+Crawl-delay: 2
+
+# Sitemap location
+Sitemap: https://katheco.lovable.app/sitemap.xml
+
+# Disallow admin and auth pages from indexing
+Disallow: /dashboard
+Disallow: /auth
