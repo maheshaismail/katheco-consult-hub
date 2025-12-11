@@ -41,20 +41,31 @@ export const HeroCarousel = ({ children, className = "", interval = 5000 }: Hero
   return (
     <section className={`relative overflow-hidden ${className}`}>
       {/* Background Slides */}
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
-        >
+      {slides.map((slide, index) => {
+        const isActive = index === currentSlide;
+        const isPrev = index === (currentSlide - 1 + slides.length) % slides.length;
+        
+        return (
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${slide})` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
-        </div>
-      ))}
+            key={index}
+            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+              isActive 
+                ? "opacity-100 scale-100 translate-x-0" 
+                : isPrev 
+                  ? "opacity-0 scale-110 -translate-x-full" 
+                  : "opacity-0 scale-105 translate-x-full"
+            }`}
+          >
+            <div
+              className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[8000ms] ease-linear ${
+                isActive ? "scale-110" : "scale-100"
+              }`}
+              style={{ backgroundImage: `url(${slide})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
+          </div>
+        );
+      })}
 
       {/* Content */}
       <div className="relative z-10">{children}</div>
