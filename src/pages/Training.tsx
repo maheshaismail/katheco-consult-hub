@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
 import { TrainingCard } from "@/components/TrainingCard";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Training = () => {
   const trainings = [
@@ -84,7 +85,15 @@ const Training = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground py-16">
+      <section 
+        className="relative text-primary-foreground py-16"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Training Programs</h1>
           <p className="text-xl text-center text-primary-foreground/90 max-w-3xl mx-auto">
