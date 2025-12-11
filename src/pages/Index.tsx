@@ -6,8 +6,8 @@ import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import AnnouncementsSection from "@/components/AnnouncementsSection";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import kathecoLogo from "@/assets/katheco-logo.jpg";
-import kathecoTeamHero from "@/assets/katheco-team-hero.jpg";
 import { 
   FileText, 
   BookOpen, 
@@ -86,15 +86,7 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section 
-        className="relative text-primary-foreground py-20 md:py-32"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${kathecoTeamHero})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <HeroCarousel className="text-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center justify-center w-32 h-32 rounded-2xl bg-white p-4 mb-6">
@@ -118,8 +110,8 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent"></div>
-      </section>
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent z-10"></div>
+      </HeroCarousel>
 
       {/* Services Section */}
       <section className="py-16 md:py-24 bg-background">
