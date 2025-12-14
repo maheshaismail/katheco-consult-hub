@@ -18,8 +18,8 @@ export const SEO = ({
   title, 
   description, 
   keywords, 
-  canonicalUrl = "https://katheco.lovable.app",
-  ogImage = "https://katheco.lovable.app/katheco-logo.jpg",
+  canonicalUrl = "https://kathecoconsultancy.com",
+  ogImage = "https://kathecoconsultancy.com/katheco-logo.jpg",
   ogType = "website",
   article
 }: SEOProps) => {
