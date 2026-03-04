@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Navbar } from "@/components/Navbar";
@@ -9,67 +11,35 @@ import AnnouncementsSection from "@/components/AnnouncementsSection";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import kathecoLogo from "@/assets/katheco-logo.jpg";
 import { 
-  FileText, 
-  BookOpen, 
-  BarChart3, 
-  GraduationCap, 
-  Lightbulb, 
-  ClipboardList, 
-  Users,
-  TrendingUp 
+  FileText, BookOpen, BarChart3, GraduationCap, Lightbulb, 
+  ClipboardList, Users, TrendingUp, LucideIcon 
 } from "lucide-react";
 
+const ICON_MAP: Record<string, LucideIcon> = {
+  "Research Proposal & Dissertation Consultation": FileText,
+  "Project Proposal Write-up": ClipboardList,
+  "Monitoring & Evaluation Consultation": TrendingUp,
+  "SPSS, STATA & Excel Training": BarChart3,
+  "Microsoft Project Training": GraduationCap,
+  "ODK/Kobo Tools Training": Lightbulb,
+  "Field Work Report Assistance": Users,
+  "Concept Note Writing": BookOpen,
+};
+
 const Index = () => {
-  const services = [
-    {
-      icon: FileText,
-      title: "Research Proposal & Dissertation",
-      description: "Expert guidance for crafting compelling research proposals and dissertations with academic rigor.",
-      serviceName: "Research Proposal & Dissertation Consultation"
-    },
-    {
-      icon: ClipboardList,
-      title: "Project Proposal Writing",
-      description: "Professional project proposal development for funding applications and organizational approval.",
-      serviceName: "Project Proposal Writing"
-    },
-    {
-      icon: TrendingUp,
-      title: "Monitoring & Evaluation",
-      description: "Comprehensive M&E frameworks to track project performance and measure impact effectively.",
-      serviceName: "Monitoring & Evaluation Consultation"
-    },
-    {
-      icon: BarChart3,
-      title: "SPSS, STATA & Excel Training",
-      description: "Hands-on training in statistical software for robust data analysis and interpretation.",
-      serviceName: "SPSS, STATA & Excel Training"
-    },
-    {
-      icon: GraduationCap,
-      title: "Microsoft Project Training",
-      description: "Master project planning, scheduling, and resource management using MS Project tools.",
-      serviceName: "Microsoft Project Training"
-    },
-    {
-      icon: Lightbulb,
-      title: "ODK Kobo Training",
-      description: "Learn mobile data collection techniques using ODK and Kobo Toolbox platforms.",
-      serviceName: "ODK Kobo Training"
-    },
-    {
-      icon: Users,
-      title: "Field Work Assistance",
-      description: "Professional support for field research, data collection, and reporting activities.",
-      serviceName: "Field Work Report Assistance"
-    },
-    {
-      icon: BookOpen,
-      title: "Concept Note Writing",
-      description: "Strategic concept notes that effectively communicate your project vision to stakeholders.",
-      serviceName: "Concept Note Writing"
-    },
-  ];
+  const [services, setServices] = useState<Array<{ title: string; description: string }>>([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const { data } = await supabase
+        .from("services")
+        .select("title, description")
+        .order("sort_order", { ascending: true })
+        .limit(8);
+      if (data && data.length > 0) setServices(data);
+    };
+    fetch();
+  }, []);
 
   const handleGetConsultancy = () => {
     window.open("https://wa.me/255755521203", "_blank");
@@ -79,9 +49,9 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <SEO 
         title="Home - Professional Research & Project Management Consultancy"
-        description="Expert consultancy in research, data analysis, project management, monitoring & evaluation, and academic support in Tanzania. Professional training in SPSS, STATA, Excel, Microsoft Project, and ODK."
-        keywords="research consultancy Tanzania, data analysis services, project management Dodoma, SPSS training, STATA training, monitoring evaluation, academic consultancy, research proposal writing, dissertation help"
-        canonicalUrl="https://katheco.lovable.app/"
+        description="Expert consultancy in research, data analysis, project management, monitoring & evaluation, and academic support in Tanzania."
+        keywords="research consultancy Tanzania, data analysis services, project management Dodoma, SPSS training, STATA training"
+        canonicalUrl="https://kathecoconsultancy.com/"
       />
       <Navbar />
       
@@ -99,12 +69,7 @@ const Index = () => {
               Empowering your academic, research, and project success with expert support.
             </p>
             <div className="pt-6">
-              <Button 
-                variant="hero" 
-                size="xl" 
-                onClick={handleGetConsultancy}
-                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-              >
+              <Button variant="hero" size="xl" onClick={handleGetConsultancy} className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                 Get Consultancy
               </Button>
             </div>
@@ -125,14 +90,18 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
-                <ServiceCard {...service} />
+                <ServiceCard 
+                  icon={ICON_MAP[service.title] || FileText}
+                  title={service.title}
+                  description={service.description}
+                  serviceName={service.title}
+                />
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Announcements Section */}
       <AnnouncementsSection />
 
       {/* WhatsApp Group Section */}
@@ -143,18 +112,11 @@ const Index = () => {
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                 <Users className="w-8 h-8 text-primary-foreground" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Join Our WhatsApp Community
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Join Our WhatsApp Community</h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-                Connect with other researchers, students, and professionals. Get updates on training, tips, and exclusive consultancy offers.
+                Connect with other researchers, students, and professionals.
               </p>
-              <Button 
-                variant="service" 
-                size="lg"
-                onClick={() => window.open("https://chat.whatsapp.com/Gl4CqWOGNdT7cKXpyoaBR3", "_blank")}
-                className="text-lg px-8"
-              >
+              <Button variant="service" size="lg" onClick={() => window.open("https://chat.whatsapp.com/Gl4CqWOGNdT7cKXpyoaBR3", "_blank")} className="text-lg px-8">
                 Join WhatsApp Group
               </Button>
             </div>
@@ -167,15 +129,8 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl mb-8 text-primary-foreground/90">
-              Contact us today for professional consultancy services
-            </p>
-            <Button 
-              variant="hero" 
-              size="xl" 
-              onClick={handleGetConsultancy}
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-            >
+            <p className="text-xl mb-8 text-primary-foreground/90">Contact us today for professional consultancy services</p>
+            <Button variant="hero" size="xl" onClick={handleGetConsultancy} className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
               Contact Us Now
             </Button>
           </AnimatedSection>
