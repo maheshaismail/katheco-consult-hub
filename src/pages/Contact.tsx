@@ -4,6 +4,8 @@ import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { PageHero } from "@/components/PageHero";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -76,22 +78,14 @@ const Contact = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section 
-        className="relative text-primary-foreground py-16"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Contact Us</h1>
-          <p className="text-xl text-center text-primary-foreground/90 max-w-3xl mx-auto">
-            Get in touch with our team for professional consultancy services
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Contact"
+        title={<>Let's talk about your <span className="text-gradient">project</span></>}
+        subtitle="Get in touch with our team for professional consultancy services — we usually reply within 24 hours."
+        image={heroBg}
+        imageAlt="Contact KATHECO consultancy"
+      />
+
 
       {/* Contact Section */}
       <section className="py-16 bg-background">

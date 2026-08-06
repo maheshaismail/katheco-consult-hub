@@ -6,8 +6,10 @@ import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { PageHero } from "@/components/PageHero";
+import { Check, ArrowRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+
 
 interface Service {
   id: string;
@@ -50,60 +52,65 @@ const Services = () => {
       />
       <Navbar />
       
-      <section 
-        className="relative text-primary-foreground py-16"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Our Services</h1>
-          <p className="text-xl text-center text-primary-foreground/90 max-w-3xl mx-auto">
-            Comprehensive consultancy services tailored to meet your research, academic, and project management needs
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Services"
+        title={<>Consultancy built around your <span className="text-gradient">research goals</span></>}
+        subtitle="Comprehensive consultancy services tailored to meet your research, academic, and project management needs."
+        image={heroBg}
+        imageAlt="KATHECO consultancy services"
+      />
 
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="bg-background py-16 md:py-24">
+        <div className="section-shell">
           {loading ? (
-            <p className="text-center text-muted-foreground py-12">Loading services...</p>
+            <p className="py-12 text-center text-muted-foreground">Loading services...</p>
           ) : (
-            <div className="grid gap-8 max-w-5xl mx-auto">
+            <div className="mx-auto grid max-w-5xl gap-6">
               {services.map((service, index) => (
                 <AnimatedSection key={service.id} animation="fade-up" delay={index * 50}>
-                  <Card className="border-border/50 shadow-md hover:shadow-lg transition-all duration-300">
-                    <CardHeader>
-                      <CardTitle className="text-2xl text-foreground">{service.title}</CardTitle>
-                      <CardDescription className="text-muted-foreground text-base">{service.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      {service.benefits.length > 0 && (
-                        <div>
-                          <h4 className="font-semibold text-foreground mb-3">What You Get:</h4>
-                          <ul className="space-y-2">
-                            {service.benefits.map((benefit, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <span className="text-primary mt-1">✓</span>
-                                <span className="text-muted-foreground">{benefit}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                      <Button variant="service" size="lg" onClick={() => handleGetService(service.title)} className="w-full md:w-auto">
-                        Get Service
-                      </Button>
-                    </CardContent>
-                  </Card>
+                  <article className="surface-card hover-lift p-7 md:p-9">
+                    <div className="flex flex-col gap-2">
+                      <span className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">
+                        Service {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <h2 className="font-display text-2xl font-bold text-foreground">{service.title}</h2>
+                      <p className="text-base leading-relaxed text-muted-foreground">{service.description}</p>
+                    </div>
+
+                    {service.benefits.length > 0 && (
+                      <div className="mt-7">
+                        <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
+                          What you get
+                        </h3>
+                        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                          {service.benefits.map((benefit, idx) => (
+                            <li key={idx} className="flex items-start gap-2.5 text-sm text-foreground/80">
+                              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary/15">
+                                <Check className="h-3 w-3 text-secondary" />
+                              </span>
+                              {benefit}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    <Button
+                      variant="service"
+                      size="lg"
+                      onClick={() => handleGetService(service.title)}
+                      className="mt-8 w-full md:w-auto"
+                    >
+                      Get Service <ArrowRight />
+                    </Button>
+                  </article>
                 </AnimatedSection>
               ))}
             </div>
           )}
         </div>
       </section>
+
 
       <Footer />
       <FloatingWhatsApp />

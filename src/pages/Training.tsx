@@ -44,14 +44,21 @@ const Training = () => {
       />
       <Navbar />
       
-      <HeroCarousel className="text-primary-foreground py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Training Programs</h1>
-          <p className="text-xl text-center text-primary-foreground/90 max-w-3xl mx-auto">
-            Professional training programs designed to enhance your research and project management skills
-          </p>
+      <HeroCarousel className="text-primary-foreground">
+        <div className="section-shell py-20 md:py-28">
+          <div className="mx-auto max-w-3xl space-y-6 text-center">
+            <span className="eyebrow text-primary-foreground/85">Training</span>
+            <h1 className="font-display text-4xl font-bold leading-[1.08] md:text-5xl lg:text-6xl">
+              Practical training in <span className="text-gradient">research tools</span>
+            </h1>
+            <p className="text-lg text-primary-foreground/85 md:text-xl">
+              Hands-on programmes in SPSS, STATA, Excel, Microsoft Project and ODK/Kobo — designed to
+              build skills you can use the next day.
+            </p>
+          </div>
         </div>
       </HeroCarousel>
+
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">

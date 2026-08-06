@@ -3,6 +3,8 @@ import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { PageHero } from "@/components/PageHero";
+
 import { Target, Eye, Award } from "lucide-react";
 import kathecoTeam from "@/assets/katheco-team.jpg";
 import kathecoTeamHero from "@/assets/katheco-team-hero.jpg";
@@ -24,29 +26,14 @@ const About = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative min-h-[500px] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src={kathecoTeamHero} 
-            alt="KATHECO Team" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-secondary/40"></div>
-        </div>
-        
-        {/* Content Overlay */}
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground drop-shadow-2xl animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-              About KATHECO CONSULTANCY COMPANY LIMITED
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/95 max-w-3xl mx-auto drop-shadow-xl animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-              Professional consultancy in research, project management, and academic support
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="About us"
+        title={<>KATHECO Consultancy <span className="text-gradient">Company Limited</span></>}
+        subtitle="Professional consultancy in research, project management, and academic support — trusted by students, researchers and organisations across Tanzania."
+        image={kathecoTeamHero}
+        imageAlt="KATHECO consultancy team"
+      />
+
 
       {/* Main Content */}
       <section className="py-16 bg-background">

@@ -62,7 +62,9 @@ export const HeroCarousel = ({ children, className = "", interval = 5000 }: Hero
               }`}
               style={{ backgroundImage: `url(${slide})` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/70 to-secondary/55" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-transparent to-transparent" />
+
           </div>
         );
       })}
