@@ -1,152 +1,141 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import kathecoLogo from "@/assets/katheco-logo.jpg";
+
+const quickLinks = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Services", path: "/services" },
+  { name: "Training", path: "/training" },
+  { name: "Contact", path: "/contact" },
+];
+
+const socials = [
+  {
+    name: "Facebook",
+    href: "https://www.fb.com/l/6lp1kJRRR",
+    path: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/kathecoconsultancy1?igsh=dDdldzV3OTM2czI0",
+    path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z",
+  },
+  {
+    name: "WhatsApp Channel",
+    href: "https://whatsapp.com/channel/0029VazfvPfCRs1n8f82Zj0h",
+    path: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z",
+  },
+];
 
 export const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* About Section */}
-          <div>
-            <h3 className="font-bold text-lg mb-4">KATHECO</h3>
-            <p className="text-primary-foreground/80 text-sm">
-              Professional consultancy in research, data analysis, and project management.
+    <footer className="relative overflow-hidden bg-gradient-hero text-primary-foreground">
+      <div className="absolute inset-0 grid-lines opacity-30" />
+      <div className="section-shell relative z-10 py-16">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <img
+                src={kathecoLogo}
+                alt="KATHECO logo"
+                className="h-11 w-11 rounded-xl bg-card object-contain p-1"
+              />
+              <span className="font-display text-lg font-bold">KATHECO</span>
+            </div>
+            <p className="text-sm leading-relaxed text-primary-foreground/70">
+              Professional consultancy in research, data analysis, monitoring &amp; evaluation, and
+              project management — based in Dodoma, serving all of Tanzania.
             </p>
+            <div className="flex gap-3 pt-1">
+              {socials.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/15 bg-primary-foreground/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-foreground/20"
+                >
+                  <span className="sr-only">{s.name}</span>
+                  <svg className="h-4.5 w-4.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d={s.path} />
+                  </svg>
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Home
-                </Link>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground/60">
+              Explore
+            </h3>
+            <ul className="mt-5 space-y-3 text-sm">
+              {quickLinks.map((l) => (
+                <li key={l.path}>
+                  <Link
+                    to={l.path}
+                    className="group inline-flex items-center gap-1.5 text-primary-foreground/75 transition-colors hover:text-primary-foreground"
+                  >
+                    {l.name}
+                    <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground/60">
+              Contact
+            </h3>
+            <ul className="mt-5 space-y-4 text-sm">
+              <li className="flex items-start gap-2.5">
+                <Phone size={16} className="mt-0.5 shrink-0 text-primary-foreground/60" />
+                <div className="space-y-1 text-primary-foreground/75">
+                  <p><a href="tel:+255755521203" className="hover:text-primary-foreground">+255 755 521 203</a></p>
+                  <p><a href="tel:+255654468827" className="hover:text-primary-foreground">+255 654 468 827</a></p>
+                  <p><a href="tel:+255612775810" className="hover:text-primary-foreground">+255 612 775 810</a></p>
+                </div>
               </li>
-              <li>
-                <Link to="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  About Us
-                </Link>
+              <li className="flex items-start gap-2.5">
+                <Mail size={16} className="mt-0.5 shrink-0 text-primary-foreground/60" />
+                <div className="space-y-1 break-all text-primary-foreground/75">
+                  <p><a href="mailto:kayombotheophil@gmail.com" className="hover:text-primary-foreground">kayombotheophil@gmail.com</a></p>
+                  <p><a href="mailto:kathecoconsultancy01@gmail.com" className="hover:text-primary-foreground">kathecoconsultancy01@gmail.com</a></p>
+                </div>
               </li>
-              <li>
-                <Link to="/services" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/training" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Training
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Contact
-                </Link>
+              <li className="flex items-start gap-2.5 text-primary-foreground/75">
+                <MapPin size={16} className="mt-0.5 shrink-0 text-primary-foreground/60" />
+                Miyuji, Dodoma, Tanzania
               </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="font-bold text-lg mb-4">Contact</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <Phone size={16} className="mt-0.5 flex-shrink-0" />
-                <div className="space-y-1">
-                  <p>
-                    <a href="tel:+255755521203" className="hover:text-primary-foreground transition-colors">
-                      +255 755 521 203
-                    </a>
-                  </p>
-                  <p>
-                    <a href="tel:+255654468827" className="hover:text-primary-foreground transition-colors">
-                      +255 654 468 827
-                    </a>
-                  </p>
-                  <p>
-                    <a href="tel:+255612775810" className="hover:text-primary-foreground transition-colors">
-                      +255 612 775 810
-                    </a>
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <Mail size={16} className="mt-0.5 flex-shrink-0" />
-                <div className="space-y-1">
-                  <p>
-                    <a href="mailto:kayombotheophil@gmail.com" className="hover:text-primary-foreground transition-colors">
-                      kayombotheophil@gmail.com
-                    </a>
-                  </p>
-                  <p>
-                    <a href="mailto:kathecoconsultancy01@gmail.com" className="hover:text-primary-foreground transition-colors">
-                      kathecoconsultancy01@gmail.com
-                    </a>
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 flex-shrink-0" />
-                <span className="text-primary-foreground/80">Miyuji, Dodoma</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Social Media */}
-          <div>
-            <h3 className="font-bold text-lg mb-4">Follow Us</h3>
-            <div className="flex gap-3">
-              {/* Facebook */}
-              <a
-                href="https://www.fb.com/l/6lp1kJRRR"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 hover:scale-110 flex items-center justify-center transition-all duration-300"
-              >
-                <span className="sr-only">Facebook</span>
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-
-              {/* Instagram */}
-              <a
-                href="https://www.instagram.com/kathecoconsultancy1?igsh=dDdldzV3OTM2czI0"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 hover:scale-110 flex items-center justify-center transition-all duration-300"
-              >
-                <span className="sr-only">Instagram</span>
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </a>
-
-              {/* WhatsApp Channel */}
-              <a
-                href="https://whatsapp.com/channel/0029VazfvPfCRs1n8f82Zj0h"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 hover:scale-110 flex items-center justify-center transition-all duration-300"
-              >
-                <span className="sr-only">WhatsApp Channel</span>
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                </svg>
-              </a>
-            </div>
+          {/* CTA */}
+          <div className="glass-panel p-6">
+            <h3 className="font-display text-lg font-bold">Start your project</h3>
+            <p className="mt-2 text-sm text-primary-foreground/75">
+              Talk to a consultant today — proposals, dissertations, data analysis and training.
+            </p>
+            <a
+              href="https://wa.me/255755521203"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary-foreground px-5 py-2.5 text-sm font-semibold text-primary transition-transform hover:-translate-y-0.5"
+            >
+              Chat on WhatsApp <ArrowUpRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} KATHECO. All rights reserved.</p>
-          <div className="mt-2 space-x-4">
-            <Link to="/privacy" className="hover:text-primary-foreground transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="hover:text-primary-foreground transition-colors">
-              Terms & Conditions
-            </Link>
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-primary-foreground/15 pt-8 text-sm text-primary-foreground/60 md:flex-row">
+          <p>&copy; {new Date().getFullYear()} KATHECO Consultancy Company Limited. All rights reserved.</p>
+          <div className="flex gap-5">
+            <Link to="/privacy" className="hover:text-primary-foreground">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-primary-foreground">Terms &amp; Conditions</Link>
           </div>
         </div>
       </div>

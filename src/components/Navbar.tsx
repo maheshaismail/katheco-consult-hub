@@ -36,7 +36,7 @@ export const Navbar = () => {
       }`}
     >
       <div className="section-shell">
-        <div className="flex h-18 items-center justify-between gap-4 py-3">
+        <div className="flex h-[4.5rem] items-center justify-between gap-4 py-3">
           <Link to="/" className="group flex items-center gap-3">
             <span className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-gradient-primary p-[2px] shadow-card">
               <img
