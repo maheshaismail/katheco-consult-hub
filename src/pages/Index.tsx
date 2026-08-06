@@ -10,10 +10,11 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import AnnouncementsSection from "@/components/AnnouncementsSection";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import kathecoLogo from "@/assets/katheco-logo.jpg";
-import { 
-  FileText, BookOpen, BarChart3, GraduationCap, Lightbulb, 
-  ClipboardList, Users, TrendingUp, LucideIcon 
+import {
+  FileText, BookOpen, BarChart3, GraduationCap, Lightbulb,
+  ClipboardList, Users, TrendingUp, LucideIcon, ArrowRight, ShieldCheck, Clock, Sparkles
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   "Research Proposal & Dissertation Consultation": FileText,
@@ -25,6 +26,34 @@ const ICON_MAP: Record<string, LucideIcon> = {
   "Field Work Report Assistance": Users,
   "Concept Note Writing": BookOpen,
 };
+
+const STATS = [
+  { value: "500+", label: "Clients supported" },
+  { value: "8", label: "Core service lines" },
+  { value: "5+", label: "Years of practice" },
+  { value: "24h", label: "Typical response" },
+];
+
+const PILLARS = [
+  {
+    icon: ShieldCheck,
+    title: "Methodologically sound",
+    description:
+      "Research designs, sampling and analysis plans that stand up to academic and donor scrutiny.",
+  },
+  {
+    icon: Sparkles,
+    title: "Hands-on training",
+    description:
+      "Practical SPSS, STATA, Excel, MS Project and ODK/Kobo sessions with real datasets.",
+  },
+  {
+    icon: Clock,
+    title: "Delivered on time",
+    description:
+      "Clear milestones, transparent pricing and consistent communication from brief to handover.",
+  },
+];
 
 const Index = () => {
   const [services, setServices] = useState<Array<{ title: string; description: string }>>([]);
@@ -47,50 +76,129 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SEO 
+      <SEO
         title="Home - Professional Research & Project Management Consultancy"
         description="Expert consultancy in research, data analysis, project management, monitoring & evaluation, and academic support in Tanzania."
         keywords="research consultancy Tanzania, data analysis services, project management Dodoma, SPSS training, STATA training"
         canonicalUrl="https://kathecoconsultancy.com/"
       />
       <Navbar />
-      
+
       {/* Hero Section */}
-      <HeroCarousel className="text-primary-foreground py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center justify-center w-32 h-32 rounded-2xl bg-white p-4 mb-6">
-              <img src={kathecoLogo} alt="KATHECO Logo" className="w-full h-full object-contain" />
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Professional Consultancy in Research, Data Analysis, and Project Management
+      <HeroCarousel className="text-primary-foreground">
+        <div className="section-shell py-20 md:py-28">
+          <div className="max-w-3xl space-y-7">
+            <span className="eyebrow animate-fade-in text-primary-foreground/85">
+              <Sparkles className="h-3.5 w-3.5" /> Dodoma · Tanzania
+            </span>
+            <h1 className="animate-fade-in font-display text-4xl font-bold leading-[1.06] md:text-5xl lg:text-6xl">
+              Research, data and project consultancy that moves your work{" "}
+              <span className="text-gradient">forward</span>.
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto">
-              Empowering your academic, research, and project success with expert support.
+            <p className="animate-fade-in max-w-2xl text-lg text-primary-foreground/85 md:text-xl">
+              KATHECO supports students, researchers and organisations with proposals, dissertations,
+              monitoring &amp; evaluation, statistical analysis and professional training.
             </p>
-            <div className="pt-6">
-              <Button variant="hero" size="xl" onClick={handleGetConsultancy} className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                Get Consultancy
+            <div className="animate-fade-in flex flex-wrap items-center gap-3 pt-2">
+              <Button variant="hero" size="xl" onClick={handleGetConsultancy}>
+                Get Consultancy <ArrowRight />
               </Button>
+              <Link to="/services">
+                <Button
+                  size="xl"
+                  variant="outline"
+                  className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
+                >
+                  Explore services
+                </Button>
+              </Link>
+            </div>
+
+            <div className="animate-fade-in flex items-center gap-4 pt-6">
+              <img
+                src={kathecoLogo}
+                alt="KATHECO Consultancy Company Limited logo"
+                className="h-14 w-14 rounded-xl bg-card object-contain p-1.5"
+              />
+              <p className="text-sm text-primary-foreground/70">
+                KATHECO Consultancy Company Limited
+                <br />
+                Registered professional consultancy practice
+              </p>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent z-10"></div>
       </HeroCarousel>
 
+      {/* Stats bar */}
+      <section className="relative z-10 bg-background">
+        <div className="section-shell -mt-10 md:-mt-14">
+          <div className="surface-card grid grid-cols-2 gap-6 p-7 shadow-elevated md:grid-cols-4 md:p-9">
+            {STATS.map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="font-display text-3xl font-bold text-primary md:text-4xl">{s.value}</p>
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pillars */}
+      <section className="bg-background py-16 md:py-24">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <AnimatedSection animation="fade-right" className="space-y-5">
+            <span className="eyebrow text-secondary">Why KATHECO</span>
+            <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
+              A consultancy partner, not just a service provider
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              We work alongside you — clarifying the question, designing the method, analysing the
+              data and presenting findings that hold up in front of any panel or donor.
+            </p>
+            <Link to="/about">
+              <Button variant="outline" size="lg">
+                About our team <ArrowRight />
+              </Button>
+            </Link>
+          </AnimatedSection>
+
+          <div className="grid gap-4">
+            {PILLARS.map((p, i) => (
+              <AnimatedSection key={p.title} animation="fade-left" delay={i * 100}>
+                <div className="surface-card hover-lift flex items-start gap-4 p-6">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-secondary/12 text-secondary">
+                    <p.icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-base font-bold text-foreground">{p.title}</h3>
+                    <p className="mt-1.5 text-sm text-muted-foreground">{p.description}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <AnimatedSection animation="fade-up" className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Services</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive consultancy services tailored to your research and project needs
+      <section className="border-y border-border/60 bg-muted/40 py-16 md:py-24">
+        <div className="section-shell">
+          <AnimatedSection animation="fade-up" className="mx-auto max-w-2xl text-center">
+            <span className="eyebrow text-secondary">Our services</span>
+            <h2 className="mt-5 font-display text-3xl font-bold text-foreground md:text-4xl">
+              Everything you need, from concept note to final report
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Comprehensive consultancy services tailored to your research and project needs.
             </p>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => (
-              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
-                <ServiceCard 
+              <AnimatedSection key={index} animation="fade-up" delay={index * 80}>
+                <ServiceCard
                   icon={ICON_MAP[service.title] || FileText}
                   title={service.title}
                   description={service.description}
@@ -105,18 +213,26 @@ const Index = () => {
       <AnnouncementsSection />
 
       {/* WhatsApp Group Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section className="bg-background py-16 md:py-20">
+        <div className="section-shell">
           <AnimatedSection animation="scale">
-            <div className="max-w-3xl mx-auto bg-gradient-to-br from-card to-background rounded-2xl shadow-xl p-8 md:p-12 text-center border border-border/50">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <Users className="w-8 h-8 text-primary-foreground" />
+            <div className="surface-card mx-auto max-w-3xl p-8 text-center md:p-12">
+              <div className="relative mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-primary">
+                <Users className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Join Our WhatsApp Community</h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-                Connect with other researchers, students, and professionals.
+              <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
+                Join our WhatsApp community
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+                Connect with other researchers, students and professionals for tips, updates and
+                exclusive training offers.
               </p>
-              <Button variant="service" size="lg" onClick={() => window.open("https://chat.whatsapp.com/Gl4CqWOGNdT7cKXpyoaBR3", "_blank")} className="text-lg px-8">
+              <Button
+                variant="service"
+                size="lg"
+                onClick={() => window.open("https://chat.whatsapp.com/Gl4CqWOGNdT7cKXpyoaBR3", "_blank")}
+                className="mt-8"
+              >
                 Join WhatsApp Group
               </Button>
             </div>
@@ -125,14 +241,30 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary to-secondary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative overflow-hidden bg-gradient-hero py-20 text-primary-foreground">
+        <div className="absolute inset-0 grid-lines opacity-30" />
+        <div className="section-shell relative z-10 text-center">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl mb-8 text-primary-foreground/90">Contact us today for professional consultancy services</p>
-            <Button variant="hero" size="xl" onClick={handleGetConsultancy} className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-              Contact Us Now
-            </Button>
+            <h2 className="mx-auto max-w-2xl font-display text-3xl font-bold md:text-4xl">
+              Ready to get started?
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-lg text-primary-foreground/80">
+              Send us a message and get a clear plan, timeline and quote for your project.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Button variant="hero" size="xl" onClick={handleGetConsultancy}>
+                Contact us now <ArrowRight />
+              </Button>
+              <Link to="/training">
+                <Button
+                  size="xl"
+                  variant="outline"
+                  className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
+                >
+                  View training
+                </Button>
+              </Link>
+            </div>
           </AnimatedSection>
         </div>
       </section>

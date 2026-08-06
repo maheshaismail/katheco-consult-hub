@@ -58,7 +58,7 @@ export const Footer = () => {
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/15 bg-primary-foreground/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-foreground/20"
                 >
                   <span className="sr-only">{s.name}</span>
-                  <svg className="h-4.5 w-4.5" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="h-[18px] w-[18px]" fill="currentColor" viewBox="0 0 24 24">
                     <path d={s.path} />
                   </svg>
                 </a>
