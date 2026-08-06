@@ -1,87 +1,126 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import kathecoLogo from "@/assets/katheco-logo.jpg";
 
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Services", path: "/services" },
+  { name: "Training", path: "/training" },
+  { name: "Contact", path: "/contact" },
+  { name: "Admin", path: "/auth" },
+];
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Training", path: "/training" },
-    { name: "Contact", path: "/contact" },
-    { name: "Admin", path: "/auth" },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => setIsOpen(false), [pathname]);
 
   return (
-    <nav className="bg-background border-b border-border sticky top-0 z-40 backdrop-blur-sm bg-background/95">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <img src={kathecoLogo} alt="KATHECO Logo" className="w-10 h-10 object-contain" />
-            <span className="font-bold text-xl text-foreground">
-              <span className="hidden lg:inline">KATHECO CONSULTANCY COMPANY LIMITED</span>
-              <span className="lg:hidden">KATHECO</span>
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-border/70 bg-background/80 shadow-card backdrop-blur-xl"
+          : "border-b border-transparent bg-background/60 backdrop-blur-md"
+      }`}
+    >
+      <div className="section-shell">
+        <div className="flex h-18 items-center justify-between gap-4 py-3">
+          <Link to="/" className="group flex items-center gap-3">
+            <span className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-gradient-primary p-[2px] shadow-card">
+              <img
+                src={kathecoLogo}
+                alt="KATHECO Consultancy Company Limited logo"
+                className="h-full w-full rounded-[10px] bg-card object-contain"
+              />
+            </span>
+            <span className="leading-tight">
+              <span className="block font-display text-base font-bold text-foreground">
+                KATHECO
+              </span>
+              <span className="hidden text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground lg:block">
+                Consultancy Company Limited
+              </span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-1">
-            {navLinks.map((link) => (
-              <Link key={link.path} to={link.path}>
-                <Button variant="ghost" className="text-foreground hover:text-primary">
+          <nav className="hidden items-center gap-1 rounded-full border border-border/70 bg-card/70 p-1 shadow-sm backdrop-blur md:flex">
+            {navLinks.map((link) => {
+              const active = pathname === link.path;
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                    active
+                      ? "bg-primary text-primary-foreground shadow-card"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  }`}
+                >
                   {link.name}
-                </Button>
-              </Link>
-            ))}
-          </div>
+                </Link>
+              );
+            })}
+          </nav>
 
           <Button
             variant="hero"
-            size="default"
             className="hidden md:inline-flex"
             onClick={() => window.open("https://wa.me/255755521203", "_blank")}
           >
-            Get Consultancy
+            <MessageCircle /> Get Consultancy
           </Button>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className="rounded-full border border-border/70 p-2 text-foreground md:hidden"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-2 border-t border-border">
+          <div className="animate-fade-in space-y-1 border-t border-border/70 py-4 md:hidden">
             {navLinks.map((link) => (
-              <Link key={link.path} to={link.path} onClick={() => setIsOpen(false)}>
-                <Button variant="ghost" className="w-full text-left justify-start text-foreground">
-                  {link.name}
-                </Button>
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`block rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+                  pathname === link.path
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                }`}
+              >
+                {link.name}
               </Link>
             ))}
             <Button
               variant="hero"
-              size="default"
-              className="w-full"
+              className="mt-2 w-full"
               onClick={() => {
                 window.open("https://wa.me/255755521203", "_blank");
                 setIsOpen(false);
               }}
             >
-              Get Consultancy
+              <MessageCircle /> Get Consultancy
             </Button>
           </div>
         )}
       </div>
-    </nav>
+    </header>
   );
 };
