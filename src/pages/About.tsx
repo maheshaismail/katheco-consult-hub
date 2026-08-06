@@ -3,6 +3,8 @@ import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SEO } from "@/components/SEO";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { PageHero } from "@/components/PageHero";
+
 import { Target, Eye, Award } from "lucide-react";
 import kathecoTeam from "@/assets/katheco-team.jpg";
 import kathecoTeamHero from "@/assets/katheco-team-hero.jpg";
