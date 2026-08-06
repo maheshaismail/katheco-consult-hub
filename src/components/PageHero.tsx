@@ -25,7 +25,7 @@ export const PageHero = ({
         <img
           src={image}
           alt={imageAlt}
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
+          className="absolute inset-0 h-full w-full object-cover opacity-25"
           loading="lazy"
         />
       )}
